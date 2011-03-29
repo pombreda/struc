@@ -1,9 +1,6 @@
 """
 Struc is a syntax wrapper for ctypes.Structure
 
->>> class BYTE(Struc):
-...     core = ctypes.c_ubyte
-
 >>> class User(Struc):
 ...     BYTE.name[32]
 ...     BYTE.password[32]
