@@ -59,6 +59,19 @@ class Struc(object):
     def __new__(cls, *args, **kw):
         return cls.core.__new__(cls.core, *args, **kw)
 
+
+class BYTE(Struc):
+    core = ctypes.c_ubyte
+    
+    
+class WORD(Struc):
+    core = ctypes.c_ushort
+
+
+class DWORD(Struc):
+    core = ctypes.c_ulong
+    
+    
 if __name__ == '__main__':
     import doctest
     doctest.testmod()

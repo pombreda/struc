@@ -1,18 +1,5 @@
-from struc import Struc
-import ctypes
+from struc import Struc, BYTE, WORD, DWORD
 from win32con import *
-
-class BYTE(Struc):
-    core = ctypes.c_ubyte
-    
-    
-class WORD(Struc):
-    core = ctypes.c_ushort
-
-
-class DWORD(Struc):
-    core = ctypes.c_ulong
-
 
 class IMAGE_DOS_HEADER(Struc):
     WORD.e_magic
