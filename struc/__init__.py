@@ -25,18 +25,18 @@ class StrucMeta(type):
 
     @staticmethod
     def __new__(cls, name, bases, attrs):
-        rv = super(StrucMeta, cls).__new__(cls, name, bases, attrs)
+        instance = super(StrucMeta, cls).__new__(cls, name, bases, attrs)
 
         if not _unbound_fields:
-            return rv
+            return instance
 
         class core(ctypes.Structure):
             _fields_ = _unbound_fields[:]
             del _unbound_fields[:]
         core.__name__ = name
         
-        rv.core = core            
-        return rv
+        instance.core = core            
+        return instance
         
     def __getattr__(self, name):
         _unbound_fields.append((name, self.core))
